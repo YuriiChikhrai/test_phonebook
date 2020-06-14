@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Lesson 8. Login page</title>
+    <link rel="stylesheet" href="/assets/login.css">
+</head>
+<body>
+    <form class="login">
+        <input type="text">
+        <input type="password">
+        <input type="submit">
+    </form>
+    <script src="/assets/login.js"></script>
+</body>
+</html>

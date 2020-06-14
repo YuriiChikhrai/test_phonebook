@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Lesson 8. Main page</title>
+</head>
+<body>
+    <h1>Hello! 
+        {% if user.email %}
+            {{ user.email }}
+            <button id='clickme'>Click me</button>
+            . Clicks: #{{ clicks }}
+        {% else %}
+            Anonym.
+        {% endif %}
+    </h1>
+
+    {% if not user.email %}
+        <a href="/login">Login Page</a>
+    {% else %}
+        <script src="/assets/main.js"></script>
+    {% endif %}
+</body>
+</html>
