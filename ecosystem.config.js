@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "phonebook-app",
-      script: "node ./app.js",
+      script: "./app.js",
       env: {
         NODE_ENV: "development",
       },
@@ -14,6 +14,7 @@ module.exports = {
       exec_mode: "cluster",
       wait_ready: true,
       restart_delay: 1000,
+      kill_timeout: 3000,
     },
   ],
 };
