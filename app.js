@@ -3,6 +3,7 @@ const { join } = require("path");
 const nunjucks = require("nunjucks");
 const mongoose = require("mongoose");
 const router = require("./router");
+const { process } = require("@hapi/joi/lib/errors");
 
 const app = express();
 
@@ -27,6 +28,26 @@ app.use("/", router);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
+  if (typeof process.send === "function") {
+    process.send("ready");
+  }
   console.log(`Server start ${PORT}`);
+});
+
+process.on("SIGINT", function () {
+  server.close((err) => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    mongoose.connection.close((err) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      console.log("Gracefull shudown complete");
+      process.exit(0);
+    });
+  });
 });
