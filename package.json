@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js",
+    "test": "jest --detectOpenHandles --forceExit",
     "docs": "apidoc -i ./api -o ./docs"
   },
   "keywords": [],
@@ -25,7 +25,9 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "apidoc": "^0.23.0"
+    "apidoc": "^0.23.0",
+    "jest": "^26.0.1",
+    "supertest": "^4.0.2"
   },
   "apidoc": {
     "title": "apidoc for phonebook hillel project",

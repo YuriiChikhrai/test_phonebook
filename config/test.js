@@ -1,6 +1,6 @@
 module.exports = {
   mongodb: {
-    uri: "mongodb://localhost:27017/contactbook_test",
+    uri: "mongodb://localhost:27017/contactbook",
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,

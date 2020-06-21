@@ -72,6 +72,7 @@ router.use(express.json());
 router.use("/api", require("./api/index"));
 
 router.use((err, req, res, next) => {
+  const status = err.status || 400;
   let e = { message: "" };
   if (err.joi) {
     e = err.joi.details;
@@ -83,7 +84,7 @@ router.use((err, req, res, next) => {
   if (!Array.isArray(e)) {
     e = [e];
   }
-  res.status(e.status || 400).send(e);
+  res.status(status).send(e);
 });
 
 module.exports = router;
