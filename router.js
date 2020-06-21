@@ -10,6 +10,8 @@ const UsersModel = require("./api/users/users.model");
 
 const router = express.Router();
 
+router.use("/docs", express.static(join(__dirname, "docs")));
+
 router.use("/assets", express.static(join(__dirname, "assets")));
 
 passport.use(

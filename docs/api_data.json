@@ -1,0 +1,173 @@
+[
+  {
+    "type": "post",
+    "url": "/api/auth/login",
+    "title": "Login user",
+    "name": "authUser",
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "6..100",
+            "optional": false,
+            "field": "password",
+            "description": "<p>User password</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"email\": \"test1@test.com\"\n  \"password\": \"123456\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success message.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api/auth/index.js",
+    "groupTitle": "Auth",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/api/auth/login"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/api/categories",
+    "title": "Get categories list",
+    "name": "getCategories",
+    "group": "Categories",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Response data</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "size": "24",
+            "optional": false,
+            "field": "data._id",
+            "description": "<p>Unique category id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.title",
+            "description": "<p>Category title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "size": "24",
+            "optional": true,
+            "field": "data.user",
+            "description": "<p>Category creator</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": true,
+            "field": "data.createdAt",
+            "description": "<p>Category creation date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": true,
+            "field": "data.updatedAt",
+            "description": "<p>Category last update date</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n    \"data\":\n        [\n            {\n              \"_id\": \"5ed39c5c7ccfcf371fef8c10\",\n              \"title\": \"Work\"\n            },\n            {\n                \"_id\": \"5ed3a4b9da41724c773b510f\",\n                \"title\": \"Cвоя категория\",\n                \"user\": \"5eca596168668808be0f6023\",\n            }\n        ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/categories/index.js",
+    "groupTitle": "Categories",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/api/categories"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/api/categories",
+    "title": "Get categories list",
+    "name": "getCategories",
+    "group": "Categories",
+    "version": "0.0.1",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Response data</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "size": "24",
+            "optional": false,
+            "field": "data._id",
+            "description": "<p>Unique category id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n    \"data\":\n        [\n            {\n              \"_id\": \"5ed39c5c7ccfcf371fef8c10\",\n              \"title\": \"Work\"\n            }\n        ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/categories/_apidoc.js",
+    "groupTitle": "Categories",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/api/categories"
+      }
+    ]
+  }
+]
