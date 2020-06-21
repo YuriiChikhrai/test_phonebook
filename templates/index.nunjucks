@@ -13,6 +13,11 @@
         {% endif %}
     </h1>
 
+    <form action="/api/files/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" />
+        <input type="submit" />
+    </form>
+
     {% if not user.email %}
         <a href="/login">Login Page</a>
     {% else %}

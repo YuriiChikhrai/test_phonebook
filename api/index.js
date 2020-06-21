@@ -8,6 +8,8 @@ router.use("/categories", isAuthorized, require("./categories/index"));
 
 router.use("/contacts", isAuthorized, require("./contacts/index"));
 
+router.use("/files", isAuthorized, require("./files/index"));
+
 router.use("/users", require("./users/index"));
 
 module.exports = router;
